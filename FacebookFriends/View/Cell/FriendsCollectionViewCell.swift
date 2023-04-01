@@ -12,7 +12,6 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
 
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
-    private let emailLabel = UILabel()
     private let locationLabel = UILabel()
     
     override init(frame: CGRect) {
@@ -33,9 +32,10 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = K.Ui.cornerRadius1
         layer.masksToBounds = true
         
-        
         profileImageView.image = UIImage(named: "logo")
-
+        profileImageView.layer.cornerRadius = K.Ui.cornerRadius2
+        profileImageView.layer.masksToBounds = true
+        
         nameLabel.backgroundColor = K.Color.bg1
         nameLabel.layer.cornerRadius = K.Ui.cornerRadius2
         nameLabel.layer.masksToBounds = true
@@ -43,30 +43,19 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
         nameLabel.textColor = K.Color.text
         nameLabel.font = nameLabel.font.withSize(K.Ui.font)
         
-        emailLabel.backgroundColor = K.Color.bg1
-        emailLabel.layer.cornerRadius = K.Ui.cornerRadius2
-        emailLabel.layer.masksToBounds = true
-        emailLabel.text = "  email label"
-        emailLabel.textColor = K.Color.text
-        emailLabel.font = nameLabel.font.withSize(K.Ui.font)
-
         locationLabel.backgroundColor = K.Color.bg1
         locationLabel.layer.cornerRadius = K.Ui.cornerRadius2
         locationLabel.layer.masksToBounds = true
         locationLabel.text = "  location label"
         locationLabel.textColor = K.Color.text
         locationLabel.font = nameLabel.font.withSize(K.Ui.font)
-//        locationLabel.edgein
 
-        
-        
     }
     
     private func setupHierarchy() {
         contentView.addSubview(
             profileImageView,
             nameLabel,
-            emailLabel,
             locationLabel
         )
     }
@@ -85,18 +74,23 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(25)
         }
         
-        emailLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(8)
-            make.leading.trailing.height.equalTo(nameLabel)
-        }
-        
         locationLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailLabel.snp.bottom).offset(8)
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
             make.leading.trailing.height.equalTo(nameLabel)
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+extension FriendsCollectionViewCell {
+    
+    func config(model: UserModel) {
+        profileImageView.load(from: model.thumbnailImage)
+        nameLabel.text = K.Ui.labelPadding + model.firstName + " " + model.lastName
+        locationLabel.text = K.Ui.labelPadding + model.country
     }
 }

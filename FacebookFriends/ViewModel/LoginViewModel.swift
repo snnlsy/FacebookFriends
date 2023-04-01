@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginViewModelProtocol: AnyObject {
-    func pushFriendsVC()
+    func pushFriendsVC(_ username: String)
     func showToastMessage()
 }
 
@@ -17,18 +17,19 @@ final class LoginViewModel {
     weak var delegate: LoginViewModelProtocol?
     
     private let mockUsernameList = [
-        LoginModel(username: "User1", password: "pass1"),
-        LoginModel(username: "User2", password: "pass2"),
-        LoginModel(username: "User3", password: "pass3"),
-        LoginModel(username: "User4", password: "pass4"),
-        LoginModel(username: "User5", password: "pass5"),
+        CredentialModel(username: "User1", password: "pass1"),
+        CredentialModel(username: "User2", password: "pass2"),
+        CredentialModel(username: "User3", password: "pass3"),
+        CredentialModel(username: "User4", password: "pass4"),
+        CredentialModel(username: "User5", password: "pass5"),
     ]
     
-    func checkCredential(loginModel: LoginModel) {
+    func checkCredential(loginModel: CredentialModel) {
         let isCorrect = mockUsernameList.contains(where: { $0 == loginModel })
         switch isCorrect {
         case true:
-            delegate?.pushFriendsVC()
+            guard let username = loginModel.username else { return }
+            delegate?.pushFriendsVC(username)
         case false:
             delegate?.showToastMessage()
         }

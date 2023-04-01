@@ -13,6 +13,7 @@ struct K {
         static let cornerRadius1 = 16.0
         static let cornerRadius2 = 8.0
         static let font = 12.0
+        static let labelPadding = "  "
 //        static let padding = 16.0
     }
     
@@ -27,5 +28,13 @@ struct K {
         static let passwordPlaceholder = "Password"
         static let loginButtonTitle = "Login"
         static let wrongCredentialMessage = "Wrong username or password"
+    }
+    
+    struct FriendsVC {
+        static let title = "Friends List"
+    }
+    
+    struct Api {
+        static let url = "https://randomuser.me/api/?page=1&results=100&seed=User1"
     }
 }

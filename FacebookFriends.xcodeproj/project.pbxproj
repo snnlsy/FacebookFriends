@@ -24,6 +24,14 @@
 		0ED2049B29D8501300093925 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049A29D8501300093925 /* LoginViewModel.swift */; };
 		0ED2049D29D87BEE00093925 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049C29D87BEE00093925 /* LoginModel.swift */; };
 		0ED2049F29D887FF00093925 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049E29D887FF00093925 /* Toast.swift */; };
+		0ED204A129D89D5E00093925 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204A029D89D5E00093925 /* FriendsViewModel.swift */; };
+		0ED204A329D8A4A100093925 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204A229D8A4A100093925 /* Data+Extension.swift */; };
+		0ED204A529D8A4BF00093925 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204A429D8A4BF00093925 /* URL+Extension.swift */; };
+		0ED204A929D8A4F000093925 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204A729D8A4F000093925 /* NetworkManager.swift */; };
+		0ED204AA29D8A4F000093925 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204A829D8A4F000093925 /* ImageManager.swift */; };
+		0ED204AC29D8A74100093925 /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204AB29D8A74100093925 /* FriendsModel.swift */; };
+		0ED204AE29D8C1D700093925 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204AD29D8C1D700093925 /* UserModel.swift */; };
+		0ED204B029D8D55000093925 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204AF29D8D55000093925 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +53,14 @@
 		0ED2049A29D8501300093925 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0ED2049C29D87BEE00093925 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		0ED2049E29D887FF00093925 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		0ED204A029D89D5E00093925 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
+		0ED204A229D8A4A100093925 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		0ED204A429D8A4BF00093925 /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		0ED204A729D8A4F000093925 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0ED204A829D8A4F000093925 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		0ED204AB29D8A74100093925 /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
+		0ED204AD29D8C1D700093925 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0ED204AF29D8D55000093925 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +98,7 @@
 				0ED2047F29D759DB00093925 /* Model */,
 				0ED2047E29D759D400093925 /* View */,
 				0ED2047D29D759CA00093925 /* ViewModel */,
+				0ED204A629D8A4D300093925 /* Manager */,
 				0ED2048529D75BCC00093925 /* Extension */,
 				0ED2048E29D77AA100093925 /* Protocol */,
 				0ED2049729D84AB000093925 /* Helper */,
@@ -96,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				0ED2049A29D8501300093925 /* LoginViewModel.swift */,
+				0ED204A029D89D5E00093925 /* FriendsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				0ED2049C29D87BEE00093925 /* LoginModel.swift */,
+				0ED204AB29D8A74100093925 /* FriendsModel.swift */,
+				0ED204AD29D8C1D700093925 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +153,9 @@
 				0ED2049329D7876D00093925 /* UICollectionView+Extension.swift */,
 				0ED2049229D7876D00093925 /* UICollectionViewCell+Extension.swift */,
 				0ED2048629D75C2600093925 /* UIView+Extension.swift */,
+				0ED204AF29D8D55000093925 /* UIImageView+Extension.swift */,
+				0ED204A229D8A4A100093925 /* Data+Extension.swift */,
+				0ED204A429D8A4BF00093925 /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -169,6 +192,15 @@
 				0ED2049E29D887FF00093925 /* Toast.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		0ED204A629D8A4D300093925 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0ED204A829D8A4F000093925 /* ImageManager.swift */,
+				0ED204A729D8A4F000093925 /* NetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,17 +279,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED204A929D8A4F000093925 /* NetworkManager.swift in Sources */,
 				0ED2048D29D77A2200093925 /* FriendsCollectionViewCell.swift in Sources */,
+				0ED204AA29D8A4F000093925 /* ImageManager.swift in Sources */,
+				0ED204A329D8A4A100093925 /* Data+Extension.swift in Sources */,
 				0ED2049029D77ABC00093925 /* ReusableViewProtocol.swift in Sources */,
 				0ED2048729D75C2600093925 /* UIView+Extension.swift in Sources */,
 				0ED2048229D75A7200093925 /* FriendsViewController.swift in Sources */,
 				0ED2046B29D7411900093925 /* LoginViewController.swift in Sources */,
 				0ED2048429D75A8800093925 /* DetailViewController.swift in Sources */,
+				0ED204AC29D8A74100093925 /* FriendsModel.swift in Sources */,
+				0ED204AE29D8C1D700093925 /* UserModel.swift in Sources */,
 				0ED2049529D7876D00093925 /* UICollectionView+Extension.swift in Sources */,
 				0ED2046729D7411900093925 /* AppDelegate.swift in Sources */,
 				0ED2049D29D87BEE00093925 /* LoginModel.swift in Sources */,
+				0ED204A529D8A4BF00093925 /* URL+Extension.swift in Sources */,
 				0ED2049B29D8501300093925 /* LoginViewModel.swift in Sources */,
 				0ED2049929D84ABF00093925 /* Constant.swift in Sources */,
+				0ED204A129D89D5E00093925 /* FriendsViewModel.swift in Sources */,
+				0ED204B029D8D55000093925 /* UIImageView+Extension.swift in Sources */,
 				0ED2046929D7411900093925 /* SceneDelegate.swift in Sources */,
 				0ED2049429D7876D00093925 /* UICollectionViewCell+Extension.swift in Sources */,
 				0ED2049F29D887FF00093925 /* Toast.swift in Sources */,

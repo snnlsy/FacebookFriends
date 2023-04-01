@@ -124,15 +124,17 @@ extension LoginViewController {
     @objc private func didTapLoginButton() {
         let username = usernameTextField.text
         let password = passwordTextField.text
-        let loginModel = LoginModel(username: username, password: password)
+        let loginModel = CredentialModel(username: username, password: password)
+        usernameTextField.text = ""
+        passwordTextField.text = ""
         loginVM.checkCredential(loginModel: loginModel)
     }
 }
 
 extension LoginViewController: LoginViewModelProtocol {
     
-    func pushFriendsVC() {
-        let vc = FriendsViewController()
+    func pushFriendsVC(_ username: String) {
+        let vc = FriendsViewController(username: username)
         navigationController?.pushViewController(vc, animated: true)
     }
     
