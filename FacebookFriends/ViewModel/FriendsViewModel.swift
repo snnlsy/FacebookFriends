@@ -39,7 +39,7 @@ final class FriendsViewModel {
             case .success(let res):
                 var userModelList = [UserModel]()
                 res.results?.forEach({ model in
-                    guard let title = model.name?.first,
+                    guard let title = model.name?.title,
                           let firstName = model.name?.first,
                           let lastName = model.name?.last,
                           let age = model.dob?.age,

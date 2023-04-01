@@ -34,6 +34,15 @@ struct K {
         static let title = "Friends List"
     }
     
+    struct DetailVC {
+        static let nameLabel = "Name"
+        static let emailLabel = "Email"
+        static let locationLabel = "Location"
+        static let phoneLabel = "Phone"
+        static let ageLabel = "Age"
+
+    }
+    
     struct Api {
         static let url = "https://randomuser.me/api/?page=1&results=100&seed=User1"
     }

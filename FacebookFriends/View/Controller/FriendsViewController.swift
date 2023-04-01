@@ -46,7 +46,9 @@ final class FriendsViewController: UIViewController {
             action: #selector(didExitButtonTap))
         rightButtonItem.tintColor = K.Color.text
         navigationItem.rightBarButtonItem = rightButtonItem
-
+        navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: K.Color.text]
+        
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         friendsCollectionView.register(FriendsCollectionViewCell.self)
@@ -97,7 +99,7 @@ extension FriendsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailViewController()
+        let vc = DetailViewController(friendsVM.userModelList[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
 }
