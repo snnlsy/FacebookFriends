@@ -115,3 +115,16 @@ extension FriendsViewController: UICollectionViewDelegateFlowLayout {
         return 16
     }
 }
+
+
+extension FriendsViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 50.0 {
+            friendsVM.appendNewData()
+        }
+    }
+}

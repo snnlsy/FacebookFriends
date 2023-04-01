@@ -10,6 +10,7 @@ import Foundation
 final class FriendsViewModel {
     
     private var username: String = ""
+    private var currentPage: Int = 0
 
     var reloadData: (() -> ())?
     
@@ -23,15 +24,27 @@ final class FriendsViewModel {
         userModelList.count
     }
     
+    var currentPageStr: String {
+        get {
+            currentPage += 1
+            return String(currentPage)
+        }
+    }
+    
     func config(_ username: String) {
         self.username = username
         fetchData()
     }
     
+    func appendNewData() {
+        fetchData()
+    }
+    
     private func fetchData() {
+        if currentPage == 5 { return }
         let queryItems = [
-            URLQueryItem(name: "results", value: "30"),
-            URLQueryItem(name: "page", value: "1"),
+            URLQueryItem(name: "results", value: "20"),
+            URLQueryItem(name: "page", value: currentPageStr),
             URLQueryItem(name: "seed", value: username)]
         var urlComps = URLComponents(string: K.Api.url)!
         urlComps.queryItems = queryItems
@@ -64,7 +77,7 @@ final class FriendsViewModel {
                     )
                     userModelList.append(userModel)
                 })
-                self?.userModelList = userModelList
+                self?.userModelList.append(contentsOf: userModelList)
             case .failure(let err):
                 print(err)
             }
