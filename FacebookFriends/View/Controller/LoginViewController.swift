@@ -28,11 +28,11 @@ final class LoginViewController: UIViewController {
     }
     
     private func setup() {
-
+        loginVM.delegate = self
     }
     
     private func setupView() {
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = K.Color.bg1
 
         logoImageView.image = UIImage(named: "logo2")
         
@@ -122,9 +122,21 @@ final class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @objc private func didTapLoginButton() {
-        
-        
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+        let loginModel = LoginModel(username: username, password: password)
+        loginVM.checkCredential(loginModel: loginModel)
+    }
+}
+
+extension LoginViewController: LoginViewModelProtocol {
+    
+    func pushFriendsVC() {
         let vc = FriendsViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showToastMessage() {
+        Toast.show(message: K.LoginVC.wrongCredentialMessage, vc: self)
     }
 }

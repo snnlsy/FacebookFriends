@@ -26,5 +26,6 @@ struct K {
         static let usernamePlaceholder = "Username"
         static let passwordPlaceholder = "Password"
         static let loginButtonTitle = "Login"
+        static let wrongCredentialMessage = "Wrong username or password"
     }
 }

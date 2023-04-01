@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct LoginModel {
-    let username: String
-    let password: String
+struct LoginModel: Equatable {
+    let username: String?
+    let password: String?
     
-    init(username: String, password: String) {
+    init(username: String?, password: String?) {
         self.username = username
         self.password = password
+    }
+    
+    static func ==(lhs: LoginModel, rhs: LoginModel) -> Bool {
+        return lhs.username == rhs.username && lhs.password == rhs.password
     }
 }
