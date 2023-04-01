@@ -31,8 +31,10 @@ final class FriendsViewController: UIViewController {
     }
     
     private func setup() {
-        friendsVM.delegate = self
         friendsVM.config(username)
+        friendsVM.reloadData = { [weak self] in
+            self?.friendsCollectionView.reloadDataAsync()
+        }
     }
     
     private func setupView() {
@@ -74,14 +76,6 @@ extension FriendsViewController {
     
     @objc private func didExitButtonTap() {
         navigationController?.popViewController(animated: true)
-    }
-}
-
-
-extension FriendsViewController: FriendsViewModelProtocol {
-    
-    func reloadData() {
-        friendsCollectionView.reloadDataAsync()
     }
 }
 

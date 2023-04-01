@@ -14,6 +14,7 @@ final class DetailViewController: UIViewController {
     
     let userModel: UserModel!
     private let profileImageView = UIImageView()
+    private let labelStackView = UIStackView()
     private let nameLabel = UILabel()
     private let emailLabel = UILabel()
     private let locationLabel = UILabel()
@@ -48,6 +49,11 @@ final class DetailViewController: UIViewController {
         profileImageView.layer.cornerRadius = K.Ui.cornerRadius2
         profileImageView.layer.masksToBounds = true
         
+        labelStackView.axis = .vertical
+        labelStackView.alignment = .fill
+        labelStackView.distribution = .fillEqually
+        labelStackView.spacing = 10
+
         nameLabel.backgroundColor = K.Color.bg2
         nameLabel.textColor = K.Color.text
         nameLabel.layer.cornerRadius = K.Ui.cornerRadius2
@@ -113,52 +119,34 @@ final class DetailViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(
             profileImageView,
-            nameLabel,
-            emailLabel,
-            locationLabel,
-            phoneLabel,
-            ageLabel,
+            labelStackView,
             mapView
         )
+        
+        labelStackView.addArrangedSubview(nameLabel)
+        labelStackView.addArrangedSubview(emailLabel)
+        labelStackView.addArrangedSubview(locationLabel)
+        labelStackView.addArrangedSubview(phoneLabel)
+        labelStackView.addArrangedSubview(ageLabel)
     }
     
     private func setupLayout() {
         profileImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.width.equalTo(view.snp.height).multipliedBy(0.2)
+            make.height.width.equalTo(view.snp.height).multipliedBy(0.25)
             make.top.equalTo(view.safeAreaLayoutGuide)
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView.snp.bottom).offset(16)
+        labelStackView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(30)
-        }
-        
-        emailLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(16)
-            make.leading.trailing.height.equalTo(nameLabel)
-        }
-        
-        locationLabel.snp.makeConstraints { make in
-            make.top.equalTo(emailLabel.snp.bottom).offset(16)
-            make.leading.trailing.height.equalTo(nameLabel)
-        }
-        
-        phoneLabel.snp.makeConstraints { make in
-            make.top.equalTo(locationLabel.snp.bottom).offset(16)
-            make.leading.trailing.height.equalTo(nameLabel)
-        }
-        
-        ageLabel.snp.makeConstraints { make in
-            make.top.equalTo(phoneLabel.snp.bottom).offset(16)
-            make.leading.trailing.height.equalTo(nameLabel)
+            make.top.equalTo(profileImageView.snp.bottom).offset(32)
+            make.bottom.equalTo(mapView.snp.top).offset(-32)
         }
         
         mapView.snp.makeConstraints { make in
-            make.top.equalTo(ageLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalTo(nameLabel)
+            make.height.equalTo(view).multipliedBy(0.25)
+            make.leading.trailing.equalTo(labelStackView)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }

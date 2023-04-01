@@ -14,7 +14,6 @@ struct K {
         static let cornerRadius2 = 8.0
         static let font = 12.0
         static let labelPadding = "  "
-//        static let padding = 16.0
     }
     
     struct Color {
@@ -44,6 +43,6 @@ struct K {
     }
     
     struct Api {
-        static let url = "https://randomuser.me/api/?page=1&results=100&seed=User1"
+        static let url = "https://randomuser.me/api"
     }
 }

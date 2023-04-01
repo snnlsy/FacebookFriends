@@ -20,17 +20,14 @@ extension UIImageView {
     }
     
     private func loadImage(url: URL) {
-        var imageUrlStr = url.absoluteString
-        if let imageUrl = URL(string: imageUrlStr) {
-            imageUrl.fetchImage { image in
-                switch image {
-                case .success(let img):
-                    DispatchQueue.main.async { [weak self] in
-                        self?.image = img
-                    }
-                case .failure(let err):
-                    print(err)
+        url.fetchImage { image in
+            switch image {
+            case .success(let img):
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = img
                 }
+            case .failure(let err):
+                print(err)
             }
         }
     }

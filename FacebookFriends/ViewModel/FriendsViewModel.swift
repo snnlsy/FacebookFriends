@@ -7,18 +7,15 @@
 
 import Foundation
 
-protocol FriendsViewModelProtocol: AnyObject {
-    func reloadData()
-}
-
 final class FriendsViewModel {
     
-    weak var delegate: FriendsViewModelProtocol?
-    
     private var username: String = ""
+
+    var reloadData: (() -> ())?
+    
     var userModelList: [UserModel] = [] {
         didSet {
-            delegate?.reloadData()
+            reloadData?()
         }
     }
     
@@ -32,7 +29,13 @@ final class FriendsViewModel {
     }
     
     private func fetchData() {
-        guard let url = URL(string: K.Api.url) else { return }
+        let queryItems = [
+            URLQueryItem(name: "results", value: "30"),
+            URLQueryItem(name: "page", value: "1"),
+            URLQueryItem(name: "seed", value: username)]
+        var urlComps = URLComponents(string: K.Api.url)!
+        urlComps.queryItems = queryItems
+        let url = urlComps.url!
         
         url.fetchJsonData { [weak self] (result: Result<FriendsModel, APIError>) in
             switch result {
