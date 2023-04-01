@@ -36,6 +36,8 @@ final class LoginViewController: UIViewController {
         usernameTextField.backgroundColor = .red
         passwordTextField.backgroundColor = .red
         loginButton.backgroundColor = .red
+        
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
     private func setupHierarchy() {
@@ -82,5 +84,14 @@ final class LoginViewController: UIViewController {
             make.width.equalTo(usernameTextField).multipliedBy(0.5)
             make.bottom.equalToSuperview().offset(-32)
         }
+    }
+}
+
+
+extension LoginViewController {
+    
+    @objc private func didTapLoginButton() {
+        let vc = FriendsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
