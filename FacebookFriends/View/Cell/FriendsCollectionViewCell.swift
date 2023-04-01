@@ -29,11 +29,37 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        backgroundColor = .systemGray
-        profileImageView.backgroundColor = .red
-        nameLabel.backgroundColor = .orange
-        emailLabel.backgroundColor = .cyan
-        locationLabel.backgroundColor = .brown
+        backgroundColor = K.Color.bg2
+        layer.cornerRadius = K.Ui.cornerRadius1
+        layer.masksToBounds = true
+        
+        
+        profileImageView.image = UIImage(named: "logo")
+
+        nameLabel.backgroundColor = K.Color.bg1
+        nameLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        nameLabel.layer.masksToBounds = true
+        nameLabel.text = "  name label"
+        nameLabel.textColor = K.Color.text
+        nameLabel.font = nameLabel.font.withSize(K.Ui.font)
+        
+        emailLabel.backgroundColor = K.Color.bg1
+        emailLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        emailLabel.layer.masksToBounds = true
+        emailLabel.text = "  email label"
+        emailLabel.textColor = K.Color.text
+        emailLabel.font = nameLabel.font.withSize(K.Ui.font)
+
+        locationLabel.backgroundColor = K.Color.bg1
+        locationLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        locationLabel.layer.masksToBounds = true
+        locationLabel.text = "  location label"
+        locationLabel.textColor = K.Color.text
+        locationLabel.font = nameLabel.font.withSize(K.Ui.font)
+//        locationLabel.edgein
+
+        
+        
     }
     
     private func setupHierarchy() {

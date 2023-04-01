@@ -20,6 +20,9 @@
 		0ED2049029D77ABC00093925 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2048F29D77ABC00093925 /* ReusableViewProtocol.swift */; };
 		0ED2049429D7876D00093925 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049229D7876D00093925 /* UICollectionViewCell+Extension.swift */; };
 		0ED2049529D7876D00093925 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049329D7876D00093925 /* UICollectionView+Extension.swift */; };
+		0ED2049929D84ABF00093925 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049829D84ABF00093925 /* Constant.swift */; };
+		0ED2049B29D8501300093925 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049A29D8501300093925 /* LoginViewModel.swift */; };
+		0ED2049D29D87BEE00093925 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2049C29D87BEE00093925 /* LoginModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		0ED2048F29D77ABC00093925 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		0ED2049229D7876D00093925 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		0ED2049329D7876D00093925 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		0ED2049829D84ABF00093925 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		0ED2049A29D8501300093925 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0ED2049C29D87BEE00093925 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +76,13 @@
 		0ED2046529D7411900093925 /* FacebookFriends */ = {
 			isa = PBXGroup;
 			children = (
+				0ED2049629D8418100093925 /* App */,
 				0ED2047F29D759DB00093925 /* Model */,
 				0ED2047E29D759D400093925 /* View */,
 				0ED2047D29D759CA00093925 /* ViewModel */,
 				0ED2048529D75BCC00093925 /* Extension */,
 				0ED2048E29D77AA100093925 /* Protocol */,
-				0ED2046629D7411900093925 /* AppDelegate.swift */,
-				0ED2046829D7411900093925 /* SceneDelegate.swift */,
+				0ED2049729D84AB000093925 /* Helper */,
 				0ED2046F29D7411A00093925 /* Assets.xcassets */,
 				0ED2047129D7411A00093925 /* LaunchScreen.storyboard */,
 				0ED2047429D7411A00093925 /* Info.plist */,
@@ -87,6 +93,7 @@
 		0ED2047D29D759CA00093925 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0ED2049A29D8501300093925 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -103,6 +110,7 @@
 		0ED2047F29D759DB00093925 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0ED2049C29D87BEE00093925 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +149,23 @@
 				0ED2048C29D77A2200093925 /* FriendsCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0ED2049629D8418100093925 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0ED2046629D7411900093925 /* AppDelegate.swift */,
+				0ED2046829D7411900093925 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0ED2049729D84AB000093925 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0ED2049829D84ABF00093925 /* Constant.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +252,9 @@
 				0ED2048429D75A8800093925 /* DetailViewController.swift in Sources */,
 				0ED2049529D7876D00093925 /* UICollectionView+Extension.swift in Sources */,
 				0ED2046729D7411900093925 /* AppDelegate.swift in Sources */,
+				0ED2049D29D87BEE00093925 /* LoginModel.swift in Sources */,
+				0ED2049B29D8501300093925 /* LoginViewModel.swift in Sources */,
+				0ED2049929D84ABF00093925 /* Constant.swift in Sources */,
 				0ED2046929D7411900093925 /* SceneDelegate.swift in Sources */,
 				0ED2049429D7876D00093925 /* UICollectionViewCell+Extension.swift in Sources */,
 			);

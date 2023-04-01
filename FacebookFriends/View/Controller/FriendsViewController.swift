@@ -29,12 +29,14 @@ final class FriendsViewController: UIViewController {
     
     private func setupView() {
         title = "Friends List"
-        view.backgroundColor = .darkGray
         navigationItem.hidesBackButton = true
-        
+        navigationController?.navigationBar.tintColor = .black
+
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         friendsCollectionView.register(FriendsCollectionViewCell.self)
+        friendsCollectionView.backgroundColor = K.Color.bg1
+
     }
     
     private func setupHierarchy() {
@@ -76,7 +78,7 @@ extension FriendsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
             width: collectionView.frame.size.width / 2.5,
-            height: 200)
+            height: 190)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

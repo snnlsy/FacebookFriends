@@ -37,10 +37,7 @@ final class DetailViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .orange
         
-        mapView.mapType = MKMapType.standard
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.center = view.center
+
         
         let coordinate = CLLocationCoordinate2D(
             latitude: 40.728,
@@ -63,12 +60,50 @@ final class DetailViewController: UIViewController {
         pin.title = "name"
         mapView.addAnnotation(pin)
 
+        view.backgroundColor = K.Color.bg1
+        
         profileImageView.backgroundColor = .red
-        nameLabel.backgroundColor = .red
+        
+        nameLabel.backgroundColor = K.Color.bg2
+        nameLabel.text = "  sdfsdf"
+        nameLabel.textColor = K.Color.text
+        nameLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        nameLabel.layer.masksToBounds = true
+        
         emailLabel.backgroundColor = .red
+        emailLabel.backgroundColor = K.Color.bg2
+        emailLabel.text = "  sdfsdf"
+        emailLabel.textColor = K.Color.text
+        emailLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        emailLabel.layer.masksToBounds = true
+        
         locationLabel.backgroundColor = .red
+        locationLabel.backgroundColor = K.Color.bg2
+        locationLabel.text = "  sdfsdf"
+        locationLabel.textColor = K.Color.text
+        locationLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        locationLabel.layer.masksToBounds = true
+        
         phoneLabel.backgroundColor = .red
+        phoneLabel.backgroundColor = K.Color.bg2
+        phoneLabel.text = "  sdfsdf"
+        phoneLabel.textColor = K.Color.text
+        phoneLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        phoneLabel.layer.masksToBounds = true
+        
         ageLabel.backgroundColor = .red
+        ageLabel.backgroundColor = K.Color.bg2
+        ageLabel.text = "  sdfsdf"
+        ageLabel.textColor = K.Color.text
+        ageLabel.layer.cornerRadius = K.Ui.cornerRadius2
+        ageLabel.layer.masksToBounds = true
+        
+        mapView.mapType = MKMapType.standard
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+        mapView.center = view.center
+        mapView.layer.cornerRadius = K.Ui.cornerRadius1
+        mapView.layer.masksToBounds = true
     }
     
     private func setupHierarchy() {
@@ -120,7 +155,7 @@ final class DetailViewController: UIViewController {
         mapView.snp.makeConstraints { make in
             make.top.equalTo(ageLabel.snp.bottom).offset(16)
             make.leading.trailing.equalTo(nameLabel)
-            make.height.equalTo(view.snp.height).multipliedBy(0.3)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }

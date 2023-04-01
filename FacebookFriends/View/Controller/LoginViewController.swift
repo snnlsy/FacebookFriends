@@ -16,9 +16,10 @@ final class LoginViewController: UIViewController {
     private let passwordTextField = UITextField()
     private let loginButton = UIButton()
     
+    private let loginVM = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         
         setup()
         setupView()
@@ -31,12 +32,42 @@ final class LoginViewController: UIViewController {
     }
     
     private func setupView() {
-        logoImageView.backgroundColor = .orange
-        containerView.backgroundColor = .blue
-        usernameTextField.backgroundColor = .red
-        passwordTextField.backgroundColor = .red
-        loginButton.backgroundColor = .red
+        view.backgroundColor = .systemGray5
+
+        logoImageView.image = UIImage(named: "logo2")
         
+        containerView.layer.cornerRadius = K.Ui.cornerRadius1
+        containerView.layer.masksToBounds = true
+        containerView.backgroundColor = K.Color.bg2
+    
+        usernameTextField.layer.cornerRadius = K.Ui.cornerRadius1
+        usernameTextField.layer.masksToBounds = true
+        usernameTextField.backgroundColor = K.Color.bg1
+        usernameTextField.textColor = K.Color.text
+        usernameTextField.placeholder = K.LoginVC.usernamePlaceholder
+        usernameTextField.leftViewMode = .always
+        usernameTextField.leftView = UIView(frame: CGRect(
+            x: 0, y: 0,
+            width: 16,
+            height: usernameTextField.frame.height))
+
+        passwordTextField.layer.cornerRadius = K.Ui.cornerRadius1
+        passwordTextField.layer.masksToBounds = true
+        passwordTextField.backgroundColor = K.Color.bg1
+        passwordTextField.textColor = .systemGray
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.placeholder = K.LoginVC.passwordPlaceholder
+        passwordTextField.leftViewMode = .always
+        passwordTextField.leftView = UIView(frame: CGRect(
+            x: 0, y: 0,
+            width: 16,
+            height: passwordTextField.frame.height))
+        
+        loginButton.layer.cornerRadius = K.Ui.cornerRadius1
+        loginButton.layer.masksToBounds = true
+        loginButton.backgroundColor = K.Color.bg1
+        loginButton.setTitle(K.LoginVC.loginButtonTitle, for: .normal)
+        loginButton.setTitleColor(.systemGray, for: .normal)
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
@@ -62,9 +93,9 @@ final class LoginViewController: UIViewController {
         
         logoImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(containerView).multipliedBy(0.2)
-            make.width.equalTo(containerView)
-            make.bottom.equalTo(containerView.snp.top).offset(-16)
+            make.leading.trailing.equalTo(containerView)
+            make.height.equalToSuperview().multipliedBy(0.1)
+            make.bottom.equalTo(containerView.snp.top).offset(-64)
         }
         
         usernameTextField.snp.makeConstraints { make in
@@ -91,6 +122,8 @@ final class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @objc private func didTapLoginButton() {
+        
+        
         let vc = FriendsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
