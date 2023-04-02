@@ -41,9 +41,9 @@ final class FriendsViewModel {
     }
     
     private func fetchData() {
-        if currentPage == 5 { return }
+//        if currentPage == 5 { return }
         let queryItems = [
-            URLQueryItem(name: "results", value: "20"),
+            URLQueryItem(name: "results", value: String(K.Api.results)),
             URLQueryItem(name: "page", value: currentPageStr),
             URLQueryItem(name: "seed", value: username)]
         var urlComps = URLComponents(string: K.Api.url)!
@@ -55,7 +55,8 @@ final class FriendsViewModel {
             case .success(let res):
                 var userModelList = [UserModel]()
                 res.results?.forEach({ model in
-                    guard let title = model.name?.title,
+                    guard let username = model.login?.username,
+                          let title = model.name?.title,
                           let firstName = model.name?.first,
                           let lastName = model.name?.last,
                           let age = model.dob?.age,
@@ -69,16 +70,25 @@ final class FriendsViewModel {
                           let largeImage = model.picture?.large else { return }
                     guard let lat = Double(latitude),
                           let lon = Double(longitude) else { return }
-                    let userModel = UserModel(
-                        title: title, firstName: firstName, lastName: lastName, age: String(age),
-                        email: email, phone: phone,
-                        country: country, city: city, latitude: lat, longitude: lon,
-                        thumbnailImage: thumbnailImage, largeImage: largeImage
-                    )
+                    let userModel = UserModel()
+                    userModel.username = username
+                    userModel.title = title
+                    userModel.firstName = firstName
+                    userModel.lastName = lastName
+                    userModel.age = String(age)
+                    userModel.email = email
+                    userModel.phone = phone
+                    userModel.country = country
+                    userModel.city = city
+                    userModel.latitude = lat
+                    userModel.longitude = lon
+                    userModel.thumbnailImage = thumbnailImage
+                    userModel.largeImage = largeImage
                     userModelList.append(userModel)
                 })
                 self?.userModelList.append(contentsOf: userModelList)
             case .failure(let err):
+                self?.currentPage -= 1
                 print(err)
             }
         }

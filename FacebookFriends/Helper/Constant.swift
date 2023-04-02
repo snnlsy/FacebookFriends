@@ -44,5 +44,6 @@ struct K {
     
     struct Api {
         static let url = "https://randomuser.me/api"
+        static let results = 20
     }
 }

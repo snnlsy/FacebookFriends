@@ -6,18 +6,25 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct UserModel {
-    let title: String
-    let firstName: String
-    let lastName: String
-    let age: String
-    let email: String
-    let phone: String
-    let country: String
-    let city: String
-    let latitude: Double
-    let longitude: Double
-    let thumbnailImage: String
-    let largeImage: String
+final class UserModel: Object {
+    @objc dynamic var username: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var age: String = ""
+    @objc dynamic var email: String = ""
+    @objc dynamic var phone: String = ""
+    @objc dynamic var country: String = ""
+    @objc dynamic var city: String = ""
+    @objc dynamic var latitude: Double = 0
+    @objc dynamic var longitude: Double = 0
+    @objc dynamic var thumbnailImage: String = ""
+    @objc dynamic var largeImage: String = ""
+}
+
+final class UserMetaModel: Object {
+    @objc dynamic var username: String = ""
+    @objc dynamic var pageCount: Int = 0
 }
