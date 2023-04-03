@@ -9,10 +9,11 @@ import Foundation
 import RealmSwift
 
 final class CacheManager {
-    
+
+    static let shared = CacheManager()
     private var database: Realm
     
-    init() {
+    private init() {
         do {
             database = try Realm()
         }

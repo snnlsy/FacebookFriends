@@ -22,6 +22,11 @@ struct K {
         static let text = UIColor.systemGray
     }
     
+    struct Image {
+        static let logo = "logo2"
+        static let exit = "pip.exit"
+    }
+    
     struct LoginVC {
         static let usernamePlaceholder = "Username"
         static let passwordPlaceholder = "Password"
@@ -48,10 +53,5 @@ struct K {
         static let resultsName = "results"
         static let pageName = "page"
         static let seedName = "seed"
-    }
-    
-    struct Image {
-        static let logo = "logo2"
-        static let exit = "pip.exit"
     }
 }

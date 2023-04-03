@@ -12,7 +12,7 @@ final class FriendsViewModel {
     
     private var username: String = ""
     private var currentPage: Int = 1
-    private var cacheManager = CacheManager()
+    private var cacheManager = CacheManager.shared
     
     var reloadData: (() -> ())?
     var errorMessage: ((String) -> ())?
@@ -128,6 +128,7 @@ final class FriendsViewModel {
                 guard let self = self else { return }
                 self.userModelList.append(contentsOf: userModelList)
 
+                // background a al
                 DispatchQueue.main.async { [weak self] in
                     self?.saveUserModelToDatabase()
                 }
