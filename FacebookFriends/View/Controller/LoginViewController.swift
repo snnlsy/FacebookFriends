@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = K.Color.bg1
 
-        logoImageView.image = UIImage(named: "logo2")
+        logoImageView.image = UIImage(named: K.Image.logo)
         
         containerView.layer.cornerRadius = K.Ui.cornerRadius1
         containerView.layer.masksToBounds = true

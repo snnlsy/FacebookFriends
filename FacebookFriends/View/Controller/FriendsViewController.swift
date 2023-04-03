@@ -47,7 +47,7 @@ final class FriendsViewController: UIViewController {
     private func setupView() {
         title = K.FriendsVC.title
         navigationItem.hidesBackButton = true
-        let exitImage = UIImage(systemName: "pip.exit")
+        let exitImage = UIImage(systemName: K.Image.exit)
         let rightButtonItem = UIBarButtonItem(
             image: exitImage,
             style: .plain,

@@ -82,9 +82,9 @@ final class FriendsViewModel {
     
     private func fetchData() {
         let queryItems = [
-            URLQueryItem(name: "results", value: String(K.Api.results)),
-            URLQueryItem(name: "page", value: currentPageStr),
-            URLQueryItem(name: "seed", value: username)]
+            URLQueryItem(name: K.Api.resultsName, value: String(K.Api.results)),
+            URLQueryItem(name: K.Api.pageName, value: currentPageStr),
+            URLQueryItem(name: K.Api.seedName, value: username)]
         var urlComps = URLComponents(string: K.Api.url)!
         urlComps.queryItems = queryItems
         let url = urlComps.url!

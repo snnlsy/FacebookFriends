@@ -45,5 +45,13 @@ struct K {
     struct Api {
         static let url = "https://randomuser.me/api"
         static let results = 20
+        static let resultsName = "results"
+        static let pageName = "page"
+        static let seedName = "seed"
+    }
+    
+    struct Image {
+        static let logo = "logo2"
+        static let exit = "pip.exit"
     }
 }
