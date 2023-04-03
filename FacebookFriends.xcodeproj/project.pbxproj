@@ -34,6 +34,7 @@
 		0ED204B029D8D55000093925 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204AF29D8D55000093925 /* UIImageView+Extension.swift */; };
 		0ED204B529D97D8700093925 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ED204B429D97D8700093925 /* RealmSwift */; };
 		0ED204B729D97E1300093925 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED204B629D97E1300093925 /* CacheManager.swift */; };
+		0ED204DC29DAEE5E00093925 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0ED204DB29DAEE5E00093925 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED204DC29DAEE5E00093925 /* SDWebImage in Frameworks */,
 				0ED204B529D97D8700093925 /* RealmSwift in Frameworks */,
 				0ED2047C29D7580600093925 /* SnapKit in Frameworks */,
 			);
@@ -227,6 +229,7 @@
 			packageProductDependencies = (
 				0ED2047B29D7580600093925 /* SnapKit */,
 				0ED204B429D97D8700093925 /* RealmSwift */,
+				0ED204DB29DAEE5E00093925 /* SDWebImage */,
 			);
 			productName = FacebookFriends;
 			productReference = 0ED2046329D7411900093925 /* FacebookFriends.app */;
@@ -259,6 +262,7 @@
 			packageReferences = (
 				0ED2047A29D7580600093925 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0ED204B329D97D8700093925 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				0ED204DA29DAEE5E00093925 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 0ED2046429D7411900093925 /* Products */;
 			projectDirPath = "";
@@ -532,6 +536,14 @@
 				kind = branch;
 			};
 		};
+		0ED204DA29DAEE5E00093925 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -544,6 +556,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0ED204B329D97D8700093925 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		0ED204DB29DAEE5E00093925 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ED204DA29DAEE5E00093925 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

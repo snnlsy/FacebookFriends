@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 final class FriendsCollectionViewCell: UICollectionViewCell {
 
@@ -32,9 +33,9 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = K.Ui.cornerRadius1
         layer.masksToBounds = true
         
-        profileImageView.image = UIImage(named: "logo")
         profileImageView.layer.cornerRadius = K.Ui.cornerRadius2
         profileImageView.layer.masksToBounds = true
+        profileImageView.backgroundColor = K.Color.bg1
         
         nameLabel.backgroundColor = K.Color.bg1
         nameLabel.layer.cornerRadius = K.Ui.cornerRadius2
@@ -86,7 +87,7 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
 extension FriendsCollectionViewCell {
     
     func config(model: UserModel) {
-        profileImageView.load(from: model.thumbnailImage)
+        profileImageView.sd_setImage(with: URL(string: model.thumbnailImage))
         nameLabel.text = K.Ui.labelPadding + model.firstName + " " + model.lastName
         locationLabel.text = K.Ui.labelPadding + model.country
     }

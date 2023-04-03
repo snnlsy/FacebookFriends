@@ -45,7 +45,8 @@ final class DetailViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = K.Color.text
         
-        profileImageView.load(from: userModel.largeImage)
+        profileImageView.sd_setImage(with: URL(string: userModel.largeImage))
+        profileImageView.backgroundColor = K.Color.bg2
         profileImageView.layer.cornerRadius = K.Ui.cornerRadius2
         profileImageView.layer.masksToBounds = true
         

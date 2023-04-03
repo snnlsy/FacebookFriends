@@ -139,6 +139,9 @@ extension LoginViewController: LoginViewModelProtocol {
     }
     
     func showToastMessage() {
-        Toast.show(message: K.LoginVC.wrongCredentialMessage, vc: self)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            Toast.show(message: K.LoginVC.wrongCredentialMessage, vc: self)
+        }
     }
 }

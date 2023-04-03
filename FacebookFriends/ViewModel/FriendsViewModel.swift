@@ -6,14 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class FriendsViewModel {
     
     private var username: String = ""
-    private var currentPage: Int = 0
-
-    var reloadData: (() -> ())?
+    private var currentPage: Int = 1
+    private var cacheManager = CacheManager()
     
+    var reloadData: (() -> ())?
+    var errorMessage: ((String) -> ())?
+
     var userModelList: [UserModel] = [] {
         didSet {
             reloadData?()
@@ -32,16 +35,69 @@ final class FriendsViewModel {
     }
     
     func config(_ username: String) {
+        
         self.username = username
-        fetchData()
+        appendNewData()
+        
+        
     }
     
     func appendNewData() {
+        let userModelListAll = cacheManager.fetch(object: UserModel())
+
+        //isim yanlis
+        let friendsListModel = cacheManager.fetch(object: FriendListModel())
+        
+        var friend = FriendListModel()
+        friendsListModel.forEach { model in
+            if  model.id == username {
+                friend = model
+            }
+        }
+        
+        if friend.id == "" {
+            fetchData()
+            return
+        }
+        
+        let friendsList = friend.friendList
+        
+        var userModelList: [UserModel] = []
+        friendsList.forEach { friendId in
+            userModelListAll.forEach { userModel in
+                if userModel.id == friendId {
+                    userModelList.append(userModel)
+                }
+            }
+        }
+        
+        let indexEnd = currentPage * K.Api.results
+        let indexStart = indexEnd - K.Api.results
+
+        let isIndexValid1 = userModelList.indices.contains(indexEnd-1)
+        let isIndexValid2 = userModelList.indices.contains(indexStart)
+        if isIndexValid1 == true && isIndexValid2 == true {
+            let cachedUserModels = userModelList[indexStart ..< indexEnd]
+            self.userModelList.append(contentsOf: cachedUserModels)
+            currentPage += 1
+            return
+        }
         fetchData()
     }
     
+    private func saveUserModelToDatabase() {
+        let friendListModel = FriendListModel()
+        friendListModel.id = username
+        userModelList.forEach { model in
+            if !cacheManager.isExist(type: UserModel(), id: model.id) {
+                cacheManager.save(object: model)
+            }
+            friendListModel.friendList.append(model.id)
+        }
+        cacheManager.update(object: friendListModel)
+    }
+    
     private func fetchData() {
-//        if currentPage == 5 { return }
         let queryItems = [
             URLQueryItem(name: "results", value: String(K.Api.results)),
             URLQueryItem(name: "page", value: currentPageStr),
@@ -71,7 +127,7 @@ final class FriendsViewModel {
                     guard let lat = Double(latitude),
                           let lon = Double(longitude) else { return }
                     let userModel = UserModel()
-                    userModel.username = username
+                    userModel.id = username
                     userModel.title = title
                     userModel.firstName = firstName
                     userModel.lastName = lastName
@@ -86,10 +142,16 @@ final class FriendsViewModel {
                     userModel.largeImage = largeImage
                     userModelList.append(userModel)
                 })
-                self?.userModelList.append(contentsOf: userModelList)
+                guard let self = self else { return }
+                self.userModelList.append(contentsOf: userModelList)
+
+                DispatchQueue.main.async { [weak self] in
+                    self?.saveUserModelToDatabase()
+                }
+
             case .failure(let err):
                 self?.currentPage -= 1
-                print(err)
+                self?.errorMessage?(err.localizedDescription)
             }
         }
     }

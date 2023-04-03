@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 final class UserModel: Object {
-    @objc dynamic var username: String = ""
+    @objc dynamic var id: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var firstName: String = ""
     @objc dynamic var lastName: String = ""
@@ -22,9 +22,17 @@ final class UserModel: Object {
     @objc dynamic var longitude: Double = 0
     @objc dynamic var thumbnailImage: String = ""
     @objc dynamic var largeImage: String = ""
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
 }
 
-final class UserMetaModel: Object {
-    @objc dynamic var username: String = ""
-    @objc dynamic var pageCount: Int = 0
+class FriendListModel: Object {
+    @objc dynamic var id: String = ""
+    let friendList = List<String>()
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
 }
