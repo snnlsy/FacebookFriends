@@ -35,49 +35,32 @@ final class FriendsViewModel {
     }
     
     func config(_ username: String) {
-        
         self.username = username
         appendNewData()
-        
-        
     }
     
     func appendNewData() {
         let userModelListAll = cacheManager.fetch(object: UserModel())
-
-        //isim yanlis
-        let friendsListModel = cacheManager.fetch(object: FriendListModel())
+        let friendListModelAll = cacheManager.fetch(object: FriendListModel())
         
-        var friend = FriendListModel()
-        friendsListModel.forEach { model in
-            if  model.id == username {
-                friend = model
-            }
-        }
-        
-        if friend.id == "" {
+        let cachedCurrentUser = friendListModelAll.filter({ $0.id == self.username })
+        if cachedCurrentUser.isEmpty {
             fetchData()
             return
         }
         
-        let friendsList = friend.friendList
-        
-        var userModelList: [UserModel] = []
-        friendsList.forEach { friendId in
-            userModelListAll.forEach { userModel in
-                if userModel.id == friendId {
-                    userModelList.append(userModel)
-                }
-            }
+        let friendsList = cachedCurrentUser.first!.friendList
+        let cachedFriendListFlat = friendsList.flatMap { friendId in
+            userModelListAll.filter({ $0.id == friendId })
         }
-        
+        let cachedFriendList = Array(cachedFriendListFlat)
+
         let indexEnd = currentPage * K.Api.results
         let indexStart = indexEnd - K.Api.results
-
-        let isIndexValid1 = userModelList.indices.contains(indexEnd-1)
-        let isIndexValid2 = userModelList.indices.contains(indexStart)
-        if isIndexValid1 == true && isIndexValid2 == true {
-            let cachedUserModels = userModelList[indexStart ..< indexEnd]
+        let isIndexEndValid = cachedFriendList.indices.contains(indexEnd-1)
+        let isIndexStartValid = cachedFriendList.indices.contains(indexStart)
+        if isIndexEndValid && isIndexStartValid {
+            let cachedUserModels = cachedFriendList[indexStart ..< indexEnd]
             self.userModelList.append(contentsOf: cachedUserModels)
             currentPage += 1
             return

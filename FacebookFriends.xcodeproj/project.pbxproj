@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5BF65729DB1BCE003FD060 /* FriendListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BF65629DB1BCE003FD060 /* FriendListModel.swift */; };
 		0ED2046729D7411900093925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2046629D7411900093925 /* AppDelegate.swift */; };
 		0ED2046929D7411900093925 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2046829D7411900093925 /* SceneDelegate.swift */; };
 		0ED2046B29D7411900093925 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2046A29D7411900093925 /* LoginViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E5BF65629DB1BCE003FD060 /* FriendListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListModel.swift; sourceTree = "<group>"; };
 		0ED2046329D7411900093925 /* FacebookFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED2046629D7411900093925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED2046829D7411900093925 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				0ED2049C29D87BEE00093925 /* LoginModel.swift */,
 				0ED204AB29D8A74100093925 /* FriendsModel.swift */,
 				0ED204AD29D8C1D700093925 /* UserModel.swift */,
+				0E5BF65629DB1BCE003FD060 /* FriendListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				0ED204A129D89D5E00093925 /* FriendsViewModel.swift in Sources */,
 				0ED204B029D8D55000093925 /* UIImageView+Extension.swift in Sources */,
 				0ED2046929D7411900093925 /* SceneDelegate.swift in Sources */,
+				0E5BF65729DB1BCE003FD060 /* FriendListModel.swift in Sources */,
 				0ED2049429D7876D00093925 /* UICollectionViewCell+Extension.swift in Sources */,
 				0ED2049F29D887FF00093925 /* Toast.swift in Sources */,
 			);

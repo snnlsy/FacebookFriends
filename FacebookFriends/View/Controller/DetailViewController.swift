@@ -30,14 +30,9 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
         setupView()
         setupHierarchy()
         setupLayout()
-    }
-    
-    private func setup() {
-        
     }
     
     private func setupView() {

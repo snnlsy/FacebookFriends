@@ -9,15 +9,6 @@ import UIKit
 import SnapKit
 import RealmSwift
 
-class Student : Object {
-    @objc dynamic var id: String = ""
-    let testScores = List<String>()
-    
-    override class func primaryKey() -> String? {
-        return "id"
-    }
-}
-
 final class FriendsViewController: UIViewController {
 
     private let username: String!
@@ -45,7 +36,7 @@ final class FriendsViewController: UIViewController {
         friendsVM.reloadData = { [weak self] in
             self?.friendsCollectionView.reloadDataAsync()
         }
-        friendsVM.errorMessage = { [weak self] err in
+        friendsVM.errorMessage = { err in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 Toast.show(message: err, vc: self)
@@ -87,6 +78,7 @@ final class FriendsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
 extension FriendsViewController {
     

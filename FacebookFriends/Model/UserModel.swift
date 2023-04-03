@@ -27,12 +27,3 @@ final class UserModel: Object {
         return "id"
     }
 }
-
-class FriendListModel: Object {
-    @objc dynamic var id: String = ""
-    let friendList = List<String>()
-    
-    override class func primaryKey() -> String? {
-        return "id"
-    }
-}

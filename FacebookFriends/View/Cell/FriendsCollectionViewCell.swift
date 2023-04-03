@@ -18,14 +18,9 @@ final class FriendsCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        setup()
         setupView()
         setupHierarchy()
         setupLayout()
-    }
-    
-    private func setup() {
-        
     }
     
     private func setupView() {

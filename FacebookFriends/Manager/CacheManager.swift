@@ -31,7 +31,8 @@ final class CacheManager {
         return !obj.isEmpty ? obj : nil
     }
     
-    func save<T: Object>(object: T, _ errorHandler: @escaping ((_ error: Error) -> ()) = {_ in return}) {
+    func save<T: Object>(object: T,
+                         _ errorHandler: @escaping ((_ error: Error) -> ()) = {_ in return}) {
         do {
             try self.database.write {
                 self.database.add(object)
@@ -47,7 +48,7 @@ final class CacheManager {
     }
     
     func update<T: Object>(object: T,
-        _ errorHandler: @escaping ((_ error: Error) -> ()) = {_ in return}) {
+                           _ errorHandler: @escaping ((_ error: Error) -> ()) = {_ in return}) {
         do {
             try database.write {
                 database.add(object, update: .modified)
@@ -59,7 +60,7 @@ final class CacheManager {
     }
     
     func delete<T: Object>(object: T,
-        _ errorHandler: @escaping ((_ error: Error) -> ()) = {_ in return}) {
+                           _ errorHandler: @escaping ((_ error: Error) -> ()) = {_ in return}) {
         do {
             try database.write {
                 database.delete(object)
